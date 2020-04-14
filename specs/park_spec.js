@@ -31,7 +31,11 @@ describe('Park', function() {
     assert.strictEqual(actual, 3.5);
   });
 
-  it('should have a collection of dinosaurs');
+  it('should have a collection of dinosaurs', function(){
+    const actual = dinoland.dinosaurs;
+    assert.strictEqual(actual.length ,3)
+    assert.deepStrictEqual(actual,[triceratops, oviraptor, stegosaurus])
+  });
 
   it('should be able to add a dinosaur to its collection');
 
