@@ -24,7 +24,7 @@ Park.prototype.mostFamousDino = function(){
   }
 
 Park.prototype.findBySpecies = function (species) {
-  let = dinosaurWithCertainSpecies = []
+  let dinosaurWithCertainSpecies = []
     for (let dinosaur of this.dinosaurs){
       if (dinosaur.species === species){
         dinosaurWithCertainSpecies.push(dinosaur);
@@ -32,6 +32,18 @@ Park.prototype.findBySpecies = function (species) {
     }
   return dinosaurWithCertainSpecies;
 };
+
+
+Park.prototype.totalVisitors = function () {
+  let totalVisitor = 0
+    for (let dinosaur of this.dinosaurs){
+      totalVisitor += dinosaur.guestsAttractedPerDay;
+    }
+  return totalVisitor;
+};
+
+
+
 
 
 
