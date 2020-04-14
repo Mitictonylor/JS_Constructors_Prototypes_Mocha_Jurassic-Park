@@ -14,11 +14,11 @@ describe('Park', function() {
   beforeEach(function () {
 
     tRex        = new Dinosaur('t-rex',       'carnivore', 50);
-    triceratops = new Dinosaur('triceratops', 'herbivore', 50);
-    stegosaurus = new Dinosaur('stegosaurus', 'herbivore', 50);
-    oviraptor   = new Dinosaur('oviraptor',    'omnivore', 50);
-    coelophysis = new Dinosaur('coelophysis', 'carnivore', 50);
-    jurassicPark = new Park("Jurassic Park", 5, [tRex, triceratops, oviraptor, stegosaurus,coelophysis])
+    triceratops = new Dinosaur('triceratops', 'herbivore', 40);
+    stegosaurus = new Dinosaur('stegosaurus', 'herbivore', 30);
+    oviraptor   = new Dinosaur('oviraptor',    'omnivore', 20);
+    coelophysis = new Dinosaur('coelophysis', 'carnivore', 10);
+    jurassicPark = new Park("Jurassic Park", 5, [triceratops, oviraptor, stegosaurus,coelophysis, tRex])
     dinoland     = new Park("Dinoland", 3.5, [triceratops, oviraptor, stegosaurus])
   });
 
@@ -53,7 +53,12 @@ describe('Park', function() {
     assert.strictEqual(actual.length, 4)
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function(){
+    const actual = jurassicPark.mostFamousDino();
+    const actualDinoland = dinoland.mostFamousDino();
+    assert.strictEqual(actual, tRex)
+    assert.strictEqual(actualDinoland, triceratops)
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 

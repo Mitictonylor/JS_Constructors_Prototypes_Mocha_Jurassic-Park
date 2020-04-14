@@ -3,5 +3,6 @@ const Dinosaur = function (species, diet, guestsAttractedPerDay) {
   this.diet = diet;
   this.guestsAttractedPerDay = guestsAttractedPerDay;
 }
-
+triceratops = new Dinosaur('triceratops', 'herbivore', 40);
+console.log(triceratops)
 module.exports = Dinosaur;
