@@ -19,7 +19,7 @@ describe('Park', function() {
     tRex2        = new Dinosaur('t-rex',       'carnivore', 20);
     triceratops = new Dinosaur('triceratops', 'herbivore', 40);
     stegosaurus = new Dinosaur('stegosaurus', 'herbivore', 30);
-    oviraptor   = new Dinosaur('oviraptor',    'omnivore', 20);
+      oviraptor   = new Dinosaur('oviraptor',    'omnivore', 20);
     oviraptor2   = new Dinosaur('oviraptor',    'omnivore', 30);
     coelophysis = new Dinosaur('coelophysis', 'carnivore', 10);
     jurassicPark = new Park("Jurassic Park", 5, [triceratops, oviraptor, stegosaurus,coelophysis, tRex])
@@ -94,4 +94,24 @@ describe('Park', function() {
     assert.strictEqual(actualDinoland, ((90*365)*dinoland.ticket))
   });
 
+  describe('Extra', function() {
+
+    it('should be able to delete all dinosaurs of a particular species', function(){
+      jurassicPark.addDino(tRex2);
+      dinoland.addDino(oviraptor2)
+      jurassicPark.deleteBySpecies('t-rex');
+      dinoland.deleteBySpecies("oviraptor");
+      const actual = jurassicPark.dinosaurs
+      const actualDinoland = dinoland.dinosaurs
+      assert.strictEqual(actual.length, 4)
+      assert.strictEqual(actualDinoland.length, 2)
+    });
+
+    it('should contain containing each of the diet types and the number of dinosaurs in the park of that diet type', function(){
+      let actual = jurassicPark.countByDiets()
+      let result = { herbivore: 2, omnivore: 1, carnivore: 2 }
+      assert.deepStrictEqual(actual, result)
+
+    });
+  });
 });
