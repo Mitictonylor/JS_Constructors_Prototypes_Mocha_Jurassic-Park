@@ -1,6 +1,6 @@
 const assert = require('assert');
-const Park = require('../models/park.js');
 const Dinosaur = require('../models/dinosaur.js');
+const Park = require('../models/park.js');
 
 describe('Park', function() {
   let tRex;
@@ -19,7 +19,7 @@ describe('Park', function() {
     coelophysis = new Dinosaur('coelophysis', 'carnivore', 50);
     jurassicPark = new Park("Jurassic Park", 5, [tRex, triceratops, oviraptor, stegosaurus,coelophysis])
     dinoland     = new Park("Dinoland", 3.5, [triceratops, oviraptor, stegosaurus])
-  })
+  });
 
   it('should have a name', function(){
     const actual = dinoland.name;

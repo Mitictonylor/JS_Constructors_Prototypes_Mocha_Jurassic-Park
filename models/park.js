@@ -4,4 +4,4 @@ const Park = function(name, ticket, dinosaur = []){
   this.dinosaur = dinosaur;
 }
 
-module.export = Park;
+module.exports = Park;
