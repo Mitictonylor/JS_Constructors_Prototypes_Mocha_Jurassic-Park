@@ -43,6 +43,19 @@ Park.prototype.totalVisitors = function () {
 };
 
 
+Park.prototype.totalVisitorsByYear = function () {
+  let visitorsByDay = this.totalVisitors();
+  return visitorsByDay * 365;
+};
+
+
+Park.prototype.revenueByYear = function () {
+  let visitorsByYear = this.totalVisitorsByYear();
+  return visitorsByYear * this.ticket;
+};
+
+
+
 
 
 

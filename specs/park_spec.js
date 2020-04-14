@@ -80,8 +80,18 @@ describe('Park', function() {
     assert.strictEqual(actualDinoland, 90)
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function(){
+    const actualDinoland = dinoland.totalVisitorsByYear()
+    const actual = jurassicPark.totalVisitorsByYear()
+    assert.strictEqual(actual, (150*365))
+    assert.strictEqual(actualDinoland, (90*365))
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function(){
+    const actualDinoland = dinoland.revenueByYear()
+    const actual = jurassicPark.revenueByYear()
+    assert.strictEqual(actual, ((150*365)* jurassicPark.ticket))
+    assert.strictEqual(actualDinoland, ((90*365)*dinoland.ticket))
+  });
 
 });
