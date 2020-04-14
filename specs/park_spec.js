@@ -8,7 +8,8 @@ describe('Park', function() {
   let stegosaurus;
   let oviraptor;
   let coelophysis;
-  let park;
+  let jurassicPark;
+  let dinoland;
 
   beforeEach(function () {
 
@@ -37,7 +38,14 @@ describe('Park', function() {
     assert.deepStrictEqual(actual,[triceratops, oviraptor, stegosaurus])
   });
 
-  it('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function(){
+    dinoland.addDino(tRex)
+    const actual = dinoland.dinosaurs;
+    assert.strictEqual(actual.length ,4)
+    assert.deepStrictEqual(actual,[triceratops, oviraptor, stegosaurus, tRex])
+    ;
+  })
+
 
   it('should be able to remove a dinosaur from its collection');
 
