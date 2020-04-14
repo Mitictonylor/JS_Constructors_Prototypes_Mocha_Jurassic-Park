@@ -39,7 +39,7 @@ describe('Park', function() {
   });
 
   it('should be able to add a dinosaur to its collection', function(){
-    dinoland.addDino(tRex)
+    dinoland.addDino(tRex);
     const actual = dinoland.dinosaurs;
     assert.strictEqual(actual.length ,4)
     assert.deepStrictEqual(actual,[triceratops, oviraptor, stegosaurus, tRex])
@@ -47,7 +47,11 @@ describe('Park', function() {
   })
 
 
-  it('should be able to remove a dinosaur from its collection');
+  it('should be able to remove a dinosaur from its collection',function(){
+    jurassicPark.removeDino();
+    const actual = jurassicPark.dinosaurs;
+    assert.strictEqual(actual.length, 4)
+  });
 
   it('should be able to find the dinosaur that attracts the most visitors');
 
