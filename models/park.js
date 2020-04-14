@@ -22,9 +22,21 @@ Park.prototype.mostFamousDino = function(){
   });
   return famousDino
   }
-  // var famousDino = this.dinosaurs.reduce(function (prev, current) {
-  //    return (prev.guestsAttractedPerDay > current.guestsAttractedPerDay) ? prev : current
-  // });
+
+Park.prototype.findBySpecies = function (species) {
+  let = dinosaurWithCertainSpecies = []
+    for (let dinosaur of this.dinosaurs){
+      if (dinosaur.species === species){
+        dinosaurWithCertainSpecies.push(dinosaur);
+      }
+    }
+  return dinosaurWithCertainSpecies;
+};
 
 
-module.exports = Park;
+
+
+
+
+
+  module.exports = Park;

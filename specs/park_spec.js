@@ -4,9 +4,11 @@ const Park = require('../models/park.js');
 
 describe('Park', function() {
   let tRex;
+  let tRex2;
   let triceratops;
   let stegosaurus;
   let oviraptor;
+  let oviraptor2;
   let coelophysis;
   let jurassicPark;
   let dinoland;
@@ -14,9 +16,11 @@ describe('Park', function() {
   beforeEach(function () {
 
     tRex        = new Dinosaur('t-rex',       'carnivore', 50);
+    tRex2        = new Dinosaur('t-rex',       'carnivore', 20);
     triceratops = new Dinosaur('triceratops', 'herbivore', 40);
     stegosaurus = new Dinosaur('stegosaurus', 'herbivore', 30);
     oviraptor   = new Dinosaur('oviraptor',    'omnivore', 20);
+    oviraptor2   = new Dinosaur('oviraptor',    'omnivore', 30);
     coelophysis = new Dinosaur('coelophysis', 'carnivore', 10);
     jurassicPark = new Park("Jurassic Park", 5, [triceratops, oviraptor, stegosaurus,coelophysis, tRex])
     dinoland     = new Park("Dinoland", 3.5, [triceratops, oviraptor, stegosaurus])
@@ -60,7 +64,14 @@ describe('Park', function() {
     assert.strictEqual(actualDinoland, triceratops)
   });
 
-  it('should be able to find all dinosaurs of a particular species');
+  it('should be able to find all dinosaurs of a particular species', function(){
+    jurassicPark.addDino(tRex2);
+    dinoland.addDino(oviraptor2)
+    const actual = jurassicPark.findBySpecies('t-rex');
+    const actualDinoland = dinoland.findBySpecies("oviraptor");
+    assert.strictEqual(actual.length, 2)
+    assert.strictEqual(actualDinoland.length, 2)
+  });
 
   it('should be able to calculate the total number of visitors per day');
 
