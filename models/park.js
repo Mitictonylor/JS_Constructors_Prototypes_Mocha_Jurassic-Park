@@ -12,6 +12,11 @@ Park.prototype.removeDino = function(){
   this.dinosaurs.pop();
 };
 
+Park.prototype.remove = function(dino){
+  const index = this.dinosaurs.indexOf(dino);
+  this.dinosaurs.splice(index,1);
+}
+
 Park.prototype.mostFamousDino = function(){
   var famousDino = this.dinosaurs.reduce(function (prev, current) {
      if (prev.guestsAttractedPerDay > current.guestsAttractedPerDay){
@@ -23,6 +28,20 @@ Park.prototype.mostFamousDino = function(){
   return famousDino
   }
 
+Park.prototype.findMostAttractiveDinosaurs = function () {
+  //set the most attractive dino to one of the dinosaurs[0]
+  let mostAttractiveDino = this.dinosaurs[0]
+  // loop over all the dinos
+  for (const dino of this.dinosaurs){
+    //if the dino guestsAttractedPerDay > the previous dino
+    if (dino.guestsAttractedPerDay > mostAttractiveDino.guestsAttractedPerDay){
+      //then set the most attractive dino to that dino
+      mostAttractiveDino = dino;
+    }
+  }
+  //return the most attractive dino
+  return mostAttractiveDino
+};
 Park.prototype.findBySpecies = function (species) {
   let dinosaurWithCertainSpecies = []
     for (let dinosaur of this.dinosaurs){
@@ -71,5 +90,14 @@ Park.prototype.countByDiets = function () {
 };
 
 
-
+Park.prototype.numberOfDinosaursByDiet = function() {
+  const objectDinoDiet = {};
+  for(const dinosaur of this.dinosaurs){
+    if (objectDinoDiet[dinosaur.diet]){
+      objectDinoDiet[dinosaur.diet] += 1;
+    }else{
+      objectDinoDiet[dinosaur.diet] = 1;
+    }
+  }return objectDinoDiet;
+};
   module.exports = Park;
